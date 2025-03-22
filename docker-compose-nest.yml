@@ -1,0 +1,17 @@
+version: '3.8'
+
+networks:
+  microservices-network:
+    external: true
+
+services:
+  nest-app:
+    container_name: nest-app
+    build:
+      context: ./
+    ports:
+      - "3000:3000"
+    environment:
+      KAFKA_BROKER: kafka:9092
+    networks:
+      - microservices-network

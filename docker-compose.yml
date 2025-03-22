@@ -1,0 +1,17 @@
+version: '3.8'
+
+networks:
+  microservices-network:
+    external: true
+
+services:
+  nest-email-microservice:
+    container_name: nest-email-microservice
+    build:
+      context: ./
+    ports:
+      - "3000:3000"
+    environment:
+      KAFKA_BROKER: kafka:29092
+    networks:
+      - microservices-network
