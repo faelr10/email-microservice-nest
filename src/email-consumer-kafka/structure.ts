@@ -1,5 +1,5 @@
 export interface IEmailConsumerService {
-  sendEmail(data: IEmailParams): void;
+  sendEmail(data: IEmailParams): Promise<void>;
 }
 
 export type IEmailParams = {
